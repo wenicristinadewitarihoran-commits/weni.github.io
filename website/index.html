@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ My Kawaii World ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff9ed8;
+  --purple: #a98bff;
+  --dark: #614a83;
+  --white: #fffaff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: var(--dark);
+  background: linear-gradient(
+    135deg, #fff2fb, #eee7ff, #ffe8f4
+  );
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .3;
+  background-image: radial-gradient(#c39bff 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: -1;
+}
+
+nav {
+  width: min(1050px, 92%);
+  margin: auto;
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  color: #9668df;
+}
+
+nav a {
+  text-decoration: none;
+  color: #80659f;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.hero {
+  width: min(1050px, 92%);
+  min-height: 610px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  padding: 30px 0 75px;
+}
+
+.intro {
+  animation: appear .8s ease both;
+}
+
+.pill {
+  display: inline-block;
+  padding: 9px 16px;
+  background: white;
+  color: #c46ab2;
+  border: 2px solid #ffd3ef;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 5px 15px #e8b4e522;
+}
+
+h1 {
+  font-size: clamp(38px, 5.5vw, 64px);
+  line-height: 1.12;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 22px 0;
+}
+
+h1 span {
+  color: #c46cd2;
+  text-shadow: 2px 3px 0 #ffcee9;
+}
+
+.intro p {
+  max-width: 420px;
+  color: #8d78a7;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 18px;
+  font-family: inherit;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+.primary {
+  color: white;
+  background: linear-gradient(120deg, #ff9ed8, #ad8aff);
+  box-shadow: 0 8px 20px #c69be94a;
+}
+
+.secondary {
+  color: #9c72c6;
+  background: white;
+  border: 2px solid #f1dcff;
+}
+
+.art {
+  position: relative;
+  max-width: 450px;
+  width: 100%;
+  margin: auto;
+  animation: float 4s ease-in-out infinite;
+}
+
+.picture {
+  overflow: hidden;
+  border-radius: 45% 45% 28px 28px;
+  border: 7px solid white;
+  background: #d6baff;
+  box-shadow: 0 18px 50px #a77ad944;
+  transform: rotate(2deg);
+}
+
+.picture img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.sticker {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  background: white;
+  border: 3px solid #ffe0f5;
+  border-radius: 22px;
+  font-size: 30px;
+  box-shadow: 0 8px 20px #b88bdc22;
+}
+
+.s1 {
+  top: 8%;
+  left: -25px;
+  transform: rotate(-12deg);
+}
+
+.s2 {
+  top: 30%;
+  right: -25px;
+  transform: rotate(12deg);
+}
+
+.s3 {
+  bottom: 5%;
+  left: -22px;
+  transform: rotate(8deg);
+}
+
+.sparkle {
+  position: absolute;
+  color: #ff91d4;
+  font-size: 32px;
+  animation: twinkle 2s infinite alternate;
+}
+
+.sp1 { top: 0; right: 5%; }
+.sp2 { bottom: 20%; right: -7%; animation-delay: .7s; }
+
+.section {
+  width: min(950px, 92%);
+  margin: 0 auto 75px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.section-heading p {
+  color: #a28bb8;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: #ffffffc9;
+  border: 2px solid white;
+  border-radius: 24px;
+  padding: 27px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px #a985c91c;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: #efc4ff;
+}
+
+.card .emoji {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #a18aaf;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.note {
+  width: min(750px, 92%);
+  margin: 0 auto 75px;
+  padding: 32px 25px;
+  text-align: center;
+  background: linear-gradient(120deg, #fff, #fff0fa);
+  border: 2px dashed #edb9e9;
+  border-radius: 28px;
+}
+
+.note h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.note p {
+  font-size: 13px;
+  color: #a18aaf;
+  line-height: 1.8;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  background: #ffffff80;
+  color: #a28bb8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  animation: rise 2.3s ease-out forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(-12px) rotate(-1deg); }
+}
+
+@keyframes twinkle {
+  from { opacity: .45; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-100vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  nav { padding: 18px 0; }
+  .nav-links { gap: 13px; }
+  nav a { font-size: 11px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 55px;
+    padding-top: 35px;
+  }
+
+  .intro p {
+    margin: auto;
+  }
+
+  .buttons { justify-content: center; }
+  .art { width: 85%; }
+  .cards { grid-template-columns: 1fr; }
+  .section-heading h2 { font-size: 25px; }
+}
+</style>
+</head>
+
+<body>
+<div id="hearts"></div>
+
+<nav>
+  <div class="logo">♡ Sicantik Weni</div>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#favorites">Favorites</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="intro">
+      <span class="pill">୨୧ WELCOME TO MY LITTLE WORLD</span>
+
+      <h1>
+        Hello,<br>
+        <span>Cutie!</span> ♡
+      </h1>
+
+      <p>
+        Haiii! Selamat datang di dunia kecilku yang
+        penuh warna pastel, karakter anime lucu,
+        bintang berkilau, dan kebahagiaan! 🌸
+      </p>
+
+      <div class="buttons">
+        <a href="#about" class="btn primary">Kenalan Yuk! ♡</a>
+        <button class="btn secondary" id="loveBtn">
+          Kirim Love 💗
+        </button>
+      </div>
+    </div>
+
+    <div class="art">
+      <div class="picture">
+        <img src="anime.png" alt="Karakter anime imut"
+             onerror="this.alt='Letakkan gambar anime.png di folder website';">
+      </div>
+
+      <div class="sticker s1">🐰</div>
+      <div class="sticker s2">💗</div>
+      <div class="sticker s3">🐱</div>
+      <div class="sparkle sp1">✦</div>
+      <div class="sparkle sp2">✧</div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-heading">
+      <h2>A Little About Me 🌷</h2>
+      <p>Hal-hal kecil yang membuat dunia lebih indah.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="emoji">🎀</div>
+        <h3>My Aesthetic</h3>
+        <p>Warna pastel, pita lucu, dan suasana yang dreamy.</p>
+      </article>
+
+      <article class="card">
+        <div class="emoji">🌸</div>
+        <h3>My Happiness</h3>
+        <p>Anime, musik favorit, dan momen kecil yang manis.</p>
+      </article>
+
+      <article class="card">
+        <div class="emoji">✨</div>
+        <h3>My Little Dream</h3>
+        <p>Membuat setiap hari terasa spesial dan penuh warna.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="favorites">
+    <div class="section-heading">
+      <h2>My Favorite Things ♡</h2>
+      <p>Apa yang paling kamu suka?</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="emoji">🐈</div>
+        <h3>Little Cats</h3>
+        <p>Si kecil menggemaskan yang bikin senyum.</p>
+      </article>
+
+      <article class="card">
+        <div class="emoji">🎧</div>
+        <h3>Sweet Music</h3>
+        <p>Musik yang menemani setiap suasana hati.</p>
+      </article>
+
+      <article class="card">
+        <div class="emoji">💜</div>
+        <h3>Purple Dreams</h3>
+        <p>Ungu cantik dengan sedikit keajaiban.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="note">
+    <h2>Sending You a Hug! 🧸</h2>
+    <p>
+      Jangan lupa tersenyum hari ini, ya!
+      Kamu pantas mendapatkan banyak hal indah. ♡
+    </p>
+    <br>
+    <button class="btn primary" id="hugBtn">Peluk Virtual ♡</button>
+  </section>
+</main>
+
+<footer>
+  Made with ♡, sprinkles & a little magic ✨
+  <br><br>
+  © 2026 Kawaii World
+</footer>
+
+<script>
+const heartArea = document.getElementById("hearts");
+
+function sendLove(amount = 12) {
+  const symbols = ["💗", "💕", "♡", "✨", "🌸"];
+
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (18 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (1.5 + Math.random() * 1.5) + "s";
+
+    heartArea.appendChild(heart);
+    heart.addEventListener("animationend", () => heart.remove());
+  }
+}
+
+document.getElementById("loveBtn").addEventListener("click", () => {
+  sendLove(18);
+});
+
+document.getElementById("hugBtn").addEventListener("click", () => {
+  sendLove(30);
+  document.getElementById("hugBtn").textContent = "Big Hug for You! 💗";
+});
+</script>
+</body>
+</html>
